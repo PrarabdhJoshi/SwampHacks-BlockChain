@@ -221,7 +221,7 @@ def new_transaction():
         return 'Missing values', 400
 
     # Create a new Transaction
-    index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], cost['cost'], flags['flags'])
+    index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'])
 
     response = {'message': 'Transaction will be added to Block {index}'}
     return jsonify(response), 201
