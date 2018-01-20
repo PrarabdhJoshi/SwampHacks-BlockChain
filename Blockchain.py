@@ -229,7 +229,7 @@ def new_transaction():
         print("this account's balance is",blockchain.balances[values['sender']])
     # Check that the required fields are in the POST'ed data
 
-    if values['sender'][values['merchandise']] not in blockchain.balances:
+    if value['merchandise'] not in blockchain.balances[values['sender']]:
         blockchain.balances[values['sender']][values['merchandise']] == values['amount']
 
     
