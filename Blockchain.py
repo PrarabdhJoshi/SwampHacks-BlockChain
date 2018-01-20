@@ -13,6 +13,7 @@ class Blockchain:
         self.current_transactions = []
         self.chain = []
         self.nodes = set()
+        self.balances = []
 
         # Create the genesis block
         self.new_block(previous_hash='1', proof=100)
@@ -109,7 +110,7 @@ class Blockchain:
         self.chain.append(block)
         return block
 
-    def new_transaction(self, sender, recipient, amount, cost, flags):
+    def new_transaction(self, sender, recipient, amount, cost, flags, merchandise):
         """
         Creates a new transaction to go into the next mined Block
         :param sender: Address of the Sender
@@ -123,6 +124,7 @@ class Blockchain:
             'cost': cost,
             'flags': flags
             'amount': amount,
+            'merchandise': merchandise
         })
 
         return self.last_block['index'] + 1
@@ -194,7 +196,8 @@ def mine():
         recipient=node_identifier,
         amount=1,
         flags="none",
-        cost=0
+        cost=0,
+        merchandise=""
     )
 
     # Forge the new Block by adding it to the chain
@@ -214,17 +217,32 @@ def mine():
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
     values = request.get_json()
-
+    print("values of balance", balances)
+    if !balances[values['sender']]
+        print("Assigning to balance to this account")
+        balances[values['sender']].balance = 0
+        print("this account's balance is",balances[values['sender']].balance )
     # Check that the required fields are in the POST'ed data
-    required = ['sender', 'recipient', 'amount', 'cost', 'flags']
+    required = ['sender', 'recipient', 'amount', 'cost', 'flags', 'merchandise']
     if not all(k in values for k in required):
         return 'Missing values', 400
 
     # Create a new Transaction
-    index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'])
+    if balances[values['sender']].currentBalance >= values['amount']
+        balances[values['sender']].currentBalance -= values['amount']
+        index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'], values['merchandise'])
 
     response = {'message': 'Transaction will be added to Block {index}'}
     return jsonify(response), 201
+
+
+@app.route('/chain1', methods=['GET'])
+def full_chain():
+    response = {
+        'chain': blockchain.chain,
+        'length': len(blockchain.chain),
+    }
+    return jsonify(response), 200
 
 
 @app.route('/chain', methods=['GET'])
