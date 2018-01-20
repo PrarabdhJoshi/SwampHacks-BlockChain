@@ -109,7 +109,7 @@ class Blockchain:
         self.chain.append(block)
         return block
 
-    def new_transaction(self, sender, recipient, amount):
+    def new_transaction(self, sender, recipient, amount, cost, flags):
         """
         Creates a new transaction to go into the next mined Block
         :param sender: Address of the Sender
@@ -193,6 +193,8 @@ def mine():
         sender="0",
         recipient=node_identifier,
         amount=1,
+        flags="none",
+        cost=0
     )
 
     # Forge the new Block by adding it to the chain
