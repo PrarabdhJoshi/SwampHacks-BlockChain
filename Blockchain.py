@@ -219,7 +219,7 @@ def new_transaction():
     values = request.get_json()
     print("values of balance", blockchain.balances)
     
-    if blockchain.balances[values['sender']] is None:
+    if values['sender'] not in blockchain.balances:
         print("Assigning to balance to this account")
         blockchain.balances[values['sender']].currentBalance = 0
         print("this account's balance is",blockchain.balances[values['sender']].currentBalance )
