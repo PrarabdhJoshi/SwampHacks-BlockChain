@@ -232,8 +232,9 @@ def new_transaction():
     # Check that the required fields are in the POST'ed data
     print("Balance", blockchain.balances[values['sender']])
     if values['merchandise'] not in blockchain.balances[values['sender']]:
-        blockchain.balances[values['sender']][values['merchandise']] == values['amount']
+        blockchain.balances[values['sender']][values['merchandise']] = values['amount']
         print("No value of this merchandise")
+        print("this account's balance is when merchandise blank",blockchain.balances[values['sender']])
 
     
     required = ['sender', 'recipient', 'amount', 'cost', 'flags', 'merchandise']
