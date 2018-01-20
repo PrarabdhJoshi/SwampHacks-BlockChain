@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { HomeComponent } from './home/home.component';
-
+import {HttpModule} from '@angular/http';
 
 const appRoutes: Routes = [
   { path: 'request-inspection', component: RequestInspectionComponent},
@@ -35,6 +35,7 @@ const appRoutes: Routes = [
     
     BrowserModule,
     MatToolbarModule,
+    HttpModule,
     MatChipsModule,
     RouterModule.forRoot(
       appRoutes,
