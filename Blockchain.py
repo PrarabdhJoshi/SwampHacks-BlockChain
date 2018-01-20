@@ -148,7 +148,7 @@ class Blockchain:
         """
 
         proof = 0
-        while self.valid_proof(last_proof, proof) is False:
+        while !self.valid_proof(last_proof, proof):# is False:
             proof += 1
 
         return proof
@@ -162,8 +162,9 @@ class Blockchain:
         :return: True if correct, False if not.
         """
 
-        guess = f'{last_proof}{proof}'.encode()
+        #guess = f'{last_proof}{proof}'.encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
+        print(guess_hash)
         return guess_hash[:4] == "0000"
 
 
