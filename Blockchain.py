@@ -192,8 +192,11 @@ blockchain = Blockchain()
 
 @app.route('/mine', methods=['GET'])
 def mine():
+
+    
     # We run the proof of work algorithm to get the next proof...
     last_block = blockchain.last_block
+    print("Current transactions pending are", last_block)
     last_proof = last_block['proof']
     proof = blockchain.proof_of_work(last_proof)
 
