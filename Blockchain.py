@@ -148,7 +148,7 @@ class Blockchain:
         """
 
         proof = 0
-        while !self.valid_proof(last_proof, proof):# is False:
+        while self.valid_proof(last_proof, proof) is False:
             proof += 1
 
         return proof
@@ -162,7 +162,7 @@ class Blockchain:
         :return: True if correct, False if not.
         """
 
-        #guess = f'{last_proof}{proof}'.encode()
+        guess = '{}{}'.format(last_proof,proof).encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
         print(guess_hash)
         return guess_hash[:4] == "0000"
@@ -219,7 +219,7 @@ def new_transaction():
     # Create a new Transaction
     index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'])
 
-    response = {'message': f'Transaction will be added to Block {index}'}
+    response = {'message': 'Transaction will be added to Block {index}'}
     return jsonify(response), 201
 
 
