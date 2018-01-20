@@ -16,7 +16,10 @@ class Blockchain:
         self.current_transactions = []
         self.chain = []
         self.nodes = set()
-        self.balances = {}
+        self.balances = {
+            Eyal= {}
+
+        }
 
         # Create the genesis block
         self.new_block(previous_hash='1', proof=100)
@@ -231,6 +234,7 @@ def new_transaction():
     print("Balance", blockchain.balances[values['sender']])
     if values['merchandise'] not in blockchain.balances[values['sender']]:
         blockchain.balances[values['sender']][values['merchandise']] == values['amount']
+        print("No value of this merchandise")
 
     
     required = ['sender', 'recipient', 'amount', 'cost', 'flags', 'merchandise']
