@@ -17,7 +17,9 @@ class Blockchain:
         self.chain = []
         self.nodes = set()
         self.balances = {
-            
+            "Eyal": {
+                "Toys": 8000
+            }
         }
 
         # Create the genesis block
