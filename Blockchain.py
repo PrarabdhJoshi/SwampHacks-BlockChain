@@ -234,7 +234,7 @@ def new_transaction():
         return 'Missing values', 400
 
     # Create a new Transaction
-    if blockchain.balances[values['sender'][values['merchandise']] >= values['amount']:
+    if blockchain.balances[values['sender']][values['merchandise']] >= values['amount']:
         blockchain.balances[values['sender']][values['merchandise']] -= values['amount']
         index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'], values['merchandise'])
 
