@@ -3,6 +3,9 @@ import json
 from time import time
 from urllib.parse import urlparse
 from uuid import uuid4
+from flask import Flask
+from flask_cors import CORS
+
 
 import requests
 from flask import Flask, jsonify, request
@@ -174,6 +177,7 @@ class Blockchain:
 
 # Instantiate the Node
 app = Flask(__name__)
+CORS(app)
 
 # Generate a globally unique address for this node
 node_identifier = str(uuid4()).replace('-', '')
