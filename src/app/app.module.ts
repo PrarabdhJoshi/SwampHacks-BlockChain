@@ -3,14 +3,37 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { RequestInspectionComponent } from './request-inspection/request-inspection.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { RouterModule, Routes } from '@angular/router';
 
+
+const appRoutes: Routes = [
+  { path: 'request-inspection', component: RequestInspectionComponent},
+  
+  {
+    path: 'home',
+    component: AppComponent
+  },
+  { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
+];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RequestInspectionComponent
   ],
   imports: [
+    
     BrowserModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatChipsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
