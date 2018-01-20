@@ -18,7 +18,7 @@ class Blockchain:
         self.nodes = set()
         self.balances = {
             "Eyal": {
-                "Toys": 8000
+                "Toys": 80000
             }
         }
 
