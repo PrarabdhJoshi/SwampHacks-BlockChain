@@ -215,22 +215,22 @@ def mine():
 
 
 @app.route('/transactions/new', methods=['POST'])
-def new_transaction(self):
+def new_transaction():
     values = request.get_json()
-    print("values of balance", self.balances)
+    print("values of balance", blockchain.balances)
     
-    if self.balances[values['sender']] is not None:
+    if blockchain.balances[values['sender']] is not None:
         print("Assigning to balance to this account")
-        self.balances[values['sender']].currentBalance = 0
-        print("this account's balance is",self.balances[values['sender']].currentBalance )
+        blockchain.balances[values['sender']].currentBalance = 0
+        print("this account's balance is",blockchain.balances[values['sender']].currentBalance )
     # Check that the required fields are in the POST'ed data
     required = ['sender', 'recipient', 'amount', 'cost', 'flags', 'merchandise']
     if not all(k in values for k in required):
         return 'Missing values', 400
 
     # Create a new Transaction
-    if self.balances[values['sender']].currentBalance >= values['amount']:
-        self.balances[values['sender']].currentBalance -= values['amount']
+    if blockchain.balances[values['sender']].currentBalance >= values['amount']:
+        blockchain.balances[values['sender']].currentBalance -= values['amount']
         index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'], values['merchandise'])
 
     response = {'message': 'Transaction will be added to Block {index}'}
