@@ -248,7 +248,7 @@ def new_transaction():
     ## Check account for recipient
     print("Balance of recipient", blockchain.balances[values['recipient']])
     if values['merchandise'] not in blockchain.balances[values['recipient']]:
-        blockchain.balances[values['recipient']] = values['merchandise']
+        blockchain.balances[values['recipient']][values['merchandise']] = 0
         print("No value of this merchandise")
         print("this account's balance is when merchandise blank for recipient",blockchain.balances[values['recipient']])
 
