@@ -196,7 +196,7 @@ def mine():
     
     # We run the proof of work algorithm to get the next proof...
     last_block = blockchain.last_block
-    print("Current transactions pending are", last_block)
+   
     last_proof = last_block['proof']
     proof = blockchain.proof_of_work(last_proof)
 
@@ -213,6 +213,7 @@ def mine():
 
     # Forge the new Block by adding it to the chain
     previous_hash = blockchain.hash(last_block)
+    print("Current transactions pending are", previous_hash)
     block = blockchain.new_block(proof, previous_hash)
 
     response = {
