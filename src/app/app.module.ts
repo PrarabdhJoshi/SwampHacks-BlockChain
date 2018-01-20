@@ -10,7 +10,10 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { HomeComponent } from './home/home.component';
 import {HttpModule} from '@angular/http';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 const appRoutes: Routes = [
   { path: 'request-inspection', component: RequestInspectionComponent},
   
@@ -37,6 +40,10 @@ const appRoutes: Routes = [
     MatToolbarModule,
     HttpModule,
     MatChipsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
