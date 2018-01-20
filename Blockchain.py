@@ -243,12 +243,14 @@ def new_transaction():
 
     # Create a new Transaction
     if blockchain.balances[values['sender']][values['merchandise']] >= values['amount']:
+
         blockchain.balances[values['sender']][values['merchandise']] -= values['amount']
         index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'], values['merchandise'])
+        response = {'message': 'Transaction will be added to Block {index}'}
+        return jsonify(response), 201
 
-    response = {'message': 'Transaction will be added to Block {index}'}
-    return jsonify(response), 201
-
+    response = {'message': 'You do not have sufficient funds in your account'}
+    return jsonify(response), 400
 
 
 @app.route('/chain', methods=['GET'])
