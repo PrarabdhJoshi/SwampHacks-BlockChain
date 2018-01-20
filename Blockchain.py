@@ -13,7 +13,7 @@ class Blockchain:
         self.current_transactions = []
         self.chain = []
         self.nodes = set()
-        self.balances = []
+        self.balances = {}
 
         # Create the genesis block
         self.new_block(previous_hash='1', proof=100)
@@ -219,7 +219,7 @@ def new_transaction():
     values = request.get_json()
     print("values of balance", blockchain.balances)
     
-    if blockchain.balances[values['sender']] is not None:
+    if blockchain.balances[values['sender']] is None:
         print("Assigning to balance to this account")
         blockchain.balances[values['sender']].currentBalance = 0
         print("this account's balance is",blockchain.balances[values['sender']].currentBalance )
