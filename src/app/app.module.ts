@@ -5,16 +5,39 @@ import { AppComponent } from './app.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { RequestInspectionComponent } from './request-inspection/request-inspection.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { RouterModule, Routes } from '@angular/router';
 
+
+const appRoutes: Routes = [
+  { path: 'request-inspection', component: RequestInspectionComponent},
+  
+  {
+    path: 'home',
+    component: AppComponent
+  },
+  { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
+];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RequestInspectionComponent
   ],
   imports: [
+    
     BrowserModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatChipsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
