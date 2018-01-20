@@ -226,7 +226,7 @@ def new_transaction():
     # Check that the required fields are in the POST'ed data
 
     if values['sender'].values['merchandise'] not in blockchain.balances:
-        blockchain.balances[values['sender']].values['merchandise'] == values['amount']
+        blockchain.balances.values['sender'].values['merchandise'] == values['amount']
 
     
     required = ['sender', 'recipient', 'amount', 'cost', 'flags', 'merchandise']
@@ -234,8 +234,8 @@ def new_transaction():
         return 'Missing values', 400
 
     # Create a new Transaction
-    if blockchain.balances[values['sender']].values['merchandise'] >= values['amount']:
-        blockchain.balances[values['sender']].values['merchandise'] -= values['amount']
+    if blockchain.balancesvalues['sender'].values['merchandise'] >= values['amount']:
+        blockchain.balancesvalues['sender'].values['merchandise'] -= values['amount']
         index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'], values['merchandise'])
 
     response = {'message': 'Transaction will be added to Block {index}'}
