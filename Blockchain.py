@@ -255,7 +255,7 @@ def new_transaction():
     required = ['sender', 'recipient', 'amount', 'cost', 'flags', 'merchandise']
     if not all(k in values for k in required):
         return 'Missing values', 400
-    print("Entire balances before transaction", balances)
+    print("Entire balances before transaction", blockchain.balances)
     # Create a new Transaction
     if blockchain.balances[values['sender']][values['merchandise']] >= values['amount']:
 
@@ -265,7 +265,7 @@ def new_transaction():
         blockchain.balances[values['recipient']][values['merchandise']] += values['amount']
 
         index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'], values['merchandise'])
-        print("Entire balances after transaction", balances)
+        print("Entire balances after transaction", blockchain.balances)
         response = {'message': 'Transaction will be added to Block {index}'}
         return jsonify(response), 201
         
