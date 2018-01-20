@@ -225,18 +225,33 @@ def new_transaction():
     values = request.get_json()
     print("values of balance", blockchain.balances)
     
+    ## If sender doesnt have account
     if values['sender'] not in blockchain.balances:
         print("Assigning to balance to this account")
         blockchain.balances[values['sender']] = {}
         print("this account's balance is",blockchain.balances[values['sender']])
+
+    ## If receiver doesnt have account
+    if values['recipient'] not in blockchain.balances:
+        print("Assigning to balance to this account")
+        blockchain.balances[values['recipient']] = {}
+        print("this account's balance for recipient",blockchain.balances[values['recipient']])
+
     # Check that the required fields are in the POST'ed data
-    print("Balance", blockchain.balances[values['sender']])
+    print("Balance of sender", blockchain.balances[values['sender']])
     if values['merchandise'] not in blockchain.balances[values['sender']]:
         blockchain.balances[values['sender']][values['merchandise']] = values['amount']
         print("No value of this merchandise")
         print("this account's balance is when merchandise blank",blockchain.balances[values['sender']])
 
     
+    ## Check account for recipient
+    print("Balance of recipient", blockchain.balances[values['recipient']])
+    if values['merchandise'] not in blockchain.balances[values['recipient']]:
+        blockchain.balances[values['recipient']][values['merchandise']] = values['amount']
+        print("No value of this merchandise")
+        print("this account's balance is when merchandise blank for recipient",blockchain.balances[values['recipient']])
+
     required = ['sender', 'recipient', 'amount', 'cost', 'flags', 'merchandise']
     if not all(k in values for k in required):
         return 'Missing values', 400
@@ -244,7 +259,11 @@ def new_transaction():
     # Create a new Transaction
     if blockchain.balances[values['sender']][values['merchandise']] >= values['amount']:
 
+        ##Deducting for sender
         blockchain.balances[values['sender']][values['merchandise']] -= values['amount']
+        ##Adding for recepient
+        blockchain.balances[values['recipient']][values['merchandise']] += values['amount']
+
         index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'], values['merchandise'])
         response = {'message': 'Transaction will be added to Block {index}'}
         return jsonify(response), 201
