@@ -265,10 +265,8 @@ def new_transaction():
         return 'Missing values', 400
     print("Entire balances before transaction", blockchain.balances)
 
-    for item in values:
-        print('Appending to pending', item)
-        blockchain.pending_transaction.append(item)
-    blockchain.pending_transaction.append('Token',randint(100, 1000))
+    values['token'] = randint(100, 1000)
+    blockchain.pending_transaction.append(values)
     print("Pending trans are", blockchain.pending_transaction)
     # # Create a new Transaction
     # if blockchain.balances[values['sender']][values['merchandise']] >= values['amount']:
