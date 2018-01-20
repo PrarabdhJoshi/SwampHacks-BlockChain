@@ -218,7 +218,7 @@ def mine():
 def new_transaction():
     values = request.get_json()
     print("values of balance", balances)
-    if !balances[values['sender']]
+    if balances[values['sender']] is not None:
         print("Assigning to balance to this account")
         balances[values['sender']].balance = 0
         print("this account's balance is",balances[values['sender']].balance )
