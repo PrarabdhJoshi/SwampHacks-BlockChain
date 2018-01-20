@@ -4,3 +4,18 @@
 body{
     margin: 0;
 }
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+  }
+  
+  .example-container > * {
+    width: 95%;
+  }
+
+  mat-form-field{
+      padding: 1em;
+      /* margin: 1em; */
+  }
