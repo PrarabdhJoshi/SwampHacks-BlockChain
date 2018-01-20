@@ -215,7 +215,7 @@ def mine():
 
 
 @app.route('/transactions/new', methods=['POST'])
-def new_transaction():
+def new_transaction(self):
     values = request.get_json()
     print("values of balance", self.balances)
     
@@ -236,14 +236,6 @@ def new_transaction():
     response = {'message': 'Transaction will be added to Block {index}'}
     return jsonify(response), 201
 
-
-@app.route('/chain1', methods=['GET'])
-def full_chain1():
-    response = {
-        'chain': blockchain.chain,
-        'length': len(blockchain.chain),
-    }
-    return jsonify(response), 200
 
 
 @app.route('/chain', methods=['GET'])
