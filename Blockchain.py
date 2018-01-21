@@ -297,7 +297,7 @@ def new_transaction():
     #     return jsonify(response), 201
 
 @app.route('/transactions/approve', methods=['GET'])
-def full_chain():
+def approve_transaction():
     print("All Pending transaction are ", blockchain.pending_transaction)
     token = request.args.get('token')
     data = blockchain.pending_transaction[token]
