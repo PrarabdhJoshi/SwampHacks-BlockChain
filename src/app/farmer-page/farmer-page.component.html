@@ -18,18 +18,25 @@
           </mat-form-field>
         
           <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Leave a comment" [(ngModel)]="comment" [ngModelOptions]="{standalone: true}"></textarea>
+            <textarea matInput placeholder="add property comment - ex. address/type" [(ngModel)]="comment" [ngModelOptions]="{standalone: true}"></textarea>
           </mat-form-field>
         
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" value="ex. 100lbs">
+            <input matInput placeholder="Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="Recepient" [(ngModel)]="recipient" [ngModelOptions]="{standalone: true}" >
+            </mat-form-field>
         </form>
+        <div *ngIf="show_it" style="color:red"><p>{{show}}</p></div>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)="post_produce()">Send</button>
         <button mat-button  [routerLink]="['/request-inspection']">Request Inspection</button>
       </mat-card-actions>
     </mat-card>
+    
     </div>
+    
   </div>

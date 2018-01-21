@@ -14,6 +14,9 @@ export class FarmerPageComponent implements OnInit {
   corntype = "corn";
   comment = "";
   quantity = 0;
+  recipient = "";
+  show="";
+  show_it=false;
 
 
   body = {"sender": "ABC",
@@ -29,26 +32,29 @@ export class FarmerPageComponent implements OnInit {
 
   post_produce($event){
     
-    // this._http.post(`http://ec2-54-243-16-82.compute-1.amazonaws.com:5000/transactions/new`,
-    // {"sender": "Eyal",
-    // "recipient": "Allan",
-    // "amount": 8,
-    // "cost": 1.36,
-    // "flags": "bution",
-    // "merchandise": "Toys"
-    // })
-    // .subscribe(
-    //   (data:any)=>{
-    //     console.log(data);
-    //     if(data.length){
-    //       console.log('from post');
-    //       console.log(data);
-    //     }
-    //   }
+    this._http.post(`http://ec2-54-243-16-82.compute-1.amazonaws.com:5000/transactions/new`,
+    {"sender": "Dummy",
+      "recipient": this.recipient,
+      "amount": this.quantity,
+      "cost": 1,
+      "flags": "None",
+      "merchandise": this.comment}  
+  )
+    .subscribe(
+      (data:any)=>{
+        console.log(data._body.message);
+        this.show_it=true;
+        this.show=data._body;
+        if(data.length){
+          console.log('from post');
+          console.log(data);
+          
+        }
+      }
 
-    // );
+    );
 
-    console.log({"type":this.corntype,"comment":this.comment,"quantity":this.quantity});
+    
   }
   
   ngOnInit() {
