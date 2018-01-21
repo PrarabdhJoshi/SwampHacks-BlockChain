@@ -1,0 +1,35 @@
+<div style="background-image:url('https://pbs.twimg.com/media/DRTPF3tUMAACsk_.jpg')">
+  <div style="margin-left:33.3%">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Producer's Farm</mat-card-title>
+        <mat-card-subtitle>Gordon Ramsay</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://www.maytrucking.com/assets/img/truck_gallery/img7.jpg" alt="Photo of the field">
+      <mat-card-content>
+        <p>
+         Please fill out the Details below
+        </p>
+        
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Crop Type" [(ngModel)]="corntype" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Leave a comment" [(ngModel)]="comment" [ngModelOptions]="{standalone: true}"></textarea>
+          </mat-form-field>
+        
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" value="ex. 100lbs">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="post_produce()">Send</button>
+        <button mat-button  [routerLink]="['/request-inspection']">Request Inspection</button>
+      </mat-card-actions>
+    </mat-card>
+    </div>
+  </div>

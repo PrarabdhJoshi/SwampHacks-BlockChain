@@ -17,9 +17,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http';
 import { FarmerPageComponent } from './farmer-page/farmer-page.component';
 import {FormsModule} from '@angular/forms';
+import { TransactionComponent } from './transaction/transaction.component';
 const appRoutes: Routes = [
   { path: 'request-inspection', component: RequestInspectionComponent},
   {path: 'farmer', component:FarmerPageComponent},
+  {path: 'transaction', component:TransactionComponent},
   
   {
     path: 'home',
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     AppHeaderComponent,
     AppFooterComponent,
     HomeComponent,
-    FarmerPageComponent
+    FarmerPageComponent,
+    TransactionComponent
   ],
   imports: [
     
