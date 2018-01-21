@@ -307,9 +307,9 @@ def approve_transaction():
         print("Values from data", data)
         index = blockchain.new_transaction(data['sender'], data['recipient'], data['amount'],data['cost'], data['flags'], data['merchandise'])
         del blockchain.pending_transaction[token]
-
+        mess = 'Your transaction has been succesfully processed. Your transaction will be added to block' + index
         response = {
-            'message': 'Your transaction has been succesfully processed. Your transaction will be added to block {index}'
+            'message': mess
         }
         return jsonify(response), 200
     response = {
@@ -320,12 +320,11 @@ def approve_transaction():
 
 @app.route('/chain', methods=['GET'])
 def full_chain():
-    values = request.get_json()
-    nodes = values.get('id')
+    id = int(request.args.get('id'))
 
-    if nodes:
+    if id:
         response = {
-        'chain': blockchain.chain[nodes],
+        'chain': blockchain.chain[id],
         'length': len(blockchain.chain),
         }
         return jsonify(response), 200
