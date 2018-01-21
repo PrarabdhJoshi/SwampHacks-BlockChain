@@ -204,7 +204,7 @@ def mine():
 
     # We must receive a reward for finding the proof.
     # The sender is "0" to signify that this node has mined a new coin.
-    
+
     # blockchain.new_transaction(
     #     sender="0",
     #     recipient=node_identifier,
@@ -320,11 +320,24 @@ def approve_transaction():
 
 @app.route('/chain', methods=['GET'])
 def full_chain():
+    values = request.get_json()
+    nodes = values.get('id')
+
+    if nodes:
+        response = {
+        'chain': blockchain.chain[nodes],
+        'length': len(blockchain.chain),
+        }
+        return jsonify(response), 200
+
     response = {
         'chain': blockchain.chain,
         'length': len(blockchain.chain),
     }
     return jsonify(response), 200
+
+
+
 
 
 @app.route('/nodes/register', methods=['POST'])
