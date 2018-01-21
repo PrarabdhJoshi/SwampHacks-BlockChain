@@ -300,7 +300,7 @@ def new_transaction():
 
     print(response.text)
         
-    response = {'message': 'Your transaction is now pending. Please send another call with token to authorize, an email has been sent to the recepient'}
+    response = {'message': 'Your transaction is now pending. The Recepient will either accept or reject the transaction. Instructions have been sent to their email address.}
     return jsonify(response), 201
 
 
@@ -329,7 +329,8 @@ def approve_transaction():
         
         response = {
             'message': 'Your transaction has been succesfully processed. Your transaction will be added to block',
-            'index': index
+            'index': index,
+            'data': data
         }
         return jsonify(response), 200
     response = {
