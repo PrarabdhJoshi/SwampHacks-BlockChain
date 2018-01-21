@@ -1,0 +1,22 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-card {
+    width: 400px;
+  }
+
+  mat-chip {
+    max-width: 200px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://liu.arts.ubc.ca/wp-content/uploads/2016/11/8672930688_d660699aca_o.jpg');
+    /* background-size: cover; */
+  }
