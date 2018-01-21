@@ -11,17 +11,18 @@
         <p>
          Please fill out the Details below
         </p>
+        {{corntype}} {{quantity}} {{comment}}
         <form class="example-form">
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Crop Type" value="Corn">
+            <input matInput placeholder="Crop Type" [(ngModel)]="corntype" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         
           <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Leave a comment"></textarea>
+            <textarea matInput placeholder="Leave a comment" [(ngModel)]="comment" [ngModelOptions]="{standalone: true}"></textarea>
           </mat-form-field>
         
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Quantity" value="ex. 100lbs">
+            <input matInput placeholder="Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" value="ex. 100lbs">
           </mat-form-field>
         </form>
       </mat-card-content>
