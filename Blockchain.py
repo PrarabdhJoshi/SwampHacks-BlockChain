@@ -327,11 +327,11 @@ def approve_transaction():
         index = blockchain.new_transaction(data['sender'], data['recipient'], data['amount'],data['cost'], data['flags'], data['merchandise'])
         del blockchain.pending_transaction[token]
         
-        response = {
+        response = [{
             'message': 'Your transaction has been succesfully processed. Your transaction will be added to block',
             'index': index,
             'data': data
-        }
+        }]
         return jsonify(response), 200
     response = {
             'message': 'Your code cannot be found. Try again'
