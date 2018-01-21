@@ -14,7 +14,7 @@ export class HomeComponent {
       { name: 'Farmer', color: '',link:'/farmer' },
       { name: 'Transaction', color: 'primary', link:'/transaction' },
       { name: 'Review Chain', color: 'accent', link: '/display' },
-      { name: 'About Us', color: 'warn', link:'/link' },
+      { name: 'Approved', color: 'warn', link:'/approve' }
       
     ];
 

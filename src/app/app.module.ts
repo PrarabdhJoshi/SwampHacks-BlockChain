@@ -18,6 +18,7 @@ import { FarmerPageComponent } from './farmer-page/farmer-page.component';
 import {FormsModule} from '@angular/forms';
 import { TransactionComponent } from './transaction/transaction.component';
 import { DisplayComponent } from './display/display.component';
+import { ApprovedComponent } from './approved/approved.component';
 
 
 const appRoutes: Routes = [
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   {path: 'farmer', component:FarmerPageComponent},
   {path: 'transaction', component:TransactionComponent},
   {path:'display',component:DisplayComponent},
+  {path:'approve',component:ApprovedComponent},
   
   
   {
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     HomeComponent,
     FarmerPageComponent,
     TransactionComponent,
-    DisplayComponent
+    DisplayComponent,
+    ApprovedComponent
   ],
   imports: [
     
