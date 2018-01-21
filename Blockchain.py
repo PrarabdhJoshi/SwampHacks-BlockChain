@@ -309,7 +309,7 @@ def approve_transaction():
         del blockchain.pending_transaction[token]
         
         response = {
-            'message': 'Your transaction has been succesfully processed. Your transaction will be added to block'
+            'message': 'Your transaction has been succesfully processed. Your transaction will be added to block',
             'index': index
         }
         return jsonify(response), 200
