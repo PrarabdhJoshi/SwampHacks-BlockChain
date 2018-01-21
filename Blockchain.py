@@ -302,7 +302,7 @@ def approve_transaction():
     token = int(request.args.get('token'))
     data = blockchain.pending_transaction[token]
     print("Values from data", data)
-    index = blockchain.new_transaction('sender', 'recipient', 'amount','cost', 'flags', 'merchandise')
+    index = blockchain.new_transaction(data['sender'], data['recipient'], data['amount'],data['cost'], data['flags'], data['merchandise'])
     del blockchain.pending_transaction[token]
 
     response = {
