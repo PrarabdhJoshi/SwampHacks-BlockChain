@@ -5,11 +5,11 @@ import 'rxjs/add/operator/map';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-farmer-page',
-  templateUrl: './farmer-page.component.html',
-  styleUrls: ['./farmer-page.component.css']
+  selector: 'app-transaction',
+  templateUrl: './transaction.component.html',
+  styleUrls: ['./transaction.component.css']
 })
-export class FarmerPageComponent implements OnInit {
+export class TransactionComponent implements OnInit {
 
   corntype = "corn";
   comment = "";
