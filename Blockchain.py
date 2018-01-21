@@ -323,26 +323,22 @@ def approve_transaction():
 def full_chain():
     
     param = False
-    try:
-        id = int(request.args.get('id'))
-        param = True
-
-    except KeyError:
-        pass
-
-    if param == True:
-        
-        response = {
-        'chain': blockchain.chain[id-1],
+    if request.args.get('id') == None:
+         response = {
+        'chain': blockchain.chain,
         'length': len(blockchain.chain),
         }
         return jsonify(response), 200
 
+    id = int(request.args.get('id'))
+    param = True
     response = {
-        'chain': blockchain.chain,
-        'length': len(blockchain.chain),
+    'chain': blockchain.chain[id-1],
+    'length': len(blockchain.chain),
     }
     return jsonify(response), 200
+
+   
 
 
 
