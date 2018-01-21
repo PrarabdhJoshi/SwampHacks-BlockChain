@@ -285,7 +285,7 @@ def new_transaction():
 
     url = "https://api:key-3ce1e8379961a1fd94132274d88ac32a@api.mailgun.net/v3/mail.maccabigamesjcc.me/messages"
 
-    payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"from\"\r\n\r\nMaccabi Games <postmaster@mail.maccabigamesjcc.me>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"to\"\r\n\r\nEyal <eyalabadi98@hotmail.com>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"subject\"\r\n\r\nNew Transaction - Verify when received\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nHello, Whenever you are ready to accept this transaction, enter the code" + {random} + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+    payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"from\"\r\n\r\nMaccabi Games <postmaster@mail.maccabigamesjcc.me>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"to\"\r\n\r\nEyal <eyalabadi98@hotmail.com>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"subject\"\r\n\r\nNew Transaction - Verify when received\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nHello, Whenever you are ready to accept this transaction, enter the code" + randomVal + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--")
     headers = {
         'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
         'cache-control': "no-cache",
