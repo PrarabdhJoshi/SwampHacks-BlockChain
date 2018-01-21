@@ -299,7 +299,7 @@ def new_transaction():
 @app.route('/transactions/approve', methods=['GET'])
 def approve_transaction():
     token = int(request.args.get('token'))
-    if blockchain.pending_transaction[token]:
+    if token is in blockchain.pending_transaction:
         print("All Pending transaction are ", blockchain.pending_transaction)
         
         data = blockchain.pending_transaction[token]
