@@ -16,7 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http';
 import { FarmerPageComponent } from './farmer-page/farmer-page.component';
-
+import {FormsModule} from '@angular/forms';
 const appRoutes: Routes = [
   { path: 'request-inspection', component: RequestInspectionComponent},
   {path: 'farmer', component:FarmerPageComponent},
@@ -50,6 +50,7 @@ const appRoutes: Routes = [
     MatCardModule,
     HttpClientModule,
     MatFormFieldModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
