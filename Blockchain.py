@@ -324,7 +324,7 @@ def full_chain():
     
     param = False
     if request.args.get('id') == None:
-         response = {
+        response = {
         'chain': blockchain.chain,
         'length': len(blockchain.chain),
         }
