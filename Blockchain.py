@@ -280,8 +280,23 @@ def new_transaction():
     #     print("Entire balances after transaction", blockchain.balances)
     #     response = {'message': 'Transaction will be added to Block {index}'}
     #     return jsonify(response), 201
+
+
+
+    url = "https://api:key-3ce1e8379961a1fd94132274d88ac32a@api.mailgun.net/v3/mail.maccabigamesjcc.me/messages"
+
+    payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"from\"\r\n\r\nMaccabi Games <postmaster@mail.maccabigamesjcc.me>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"to\"\r\n\r\nEyal <eyalabadi98@hotmail.com>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"subject\"\r\n\r\nNew Transaction - Verify when received\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nHello, Whenever you are ready to accept this transaction, enter the code" + {random} + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+    headers = {
+        'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+        'cache-control': "no-cache",
+        'postman-token': "fb01ad7a-71e7-ceec-aa4a-27be893eef38"
+        }
+
+    response = requests.request("POST", url, data=payload, headers=headers)
+
+    print(response.text)
         
-    response = {'message': 'Your transaction is now pending. Please send another call with token to authorize', 'token': randomVal}
+    response = {'message': 'Your transaction is now pending. Please send another call with token to authorize, an email has been sent to the recepient'}
     return jsonify(response), 201
 
 
