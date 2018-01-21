@@ -321,9 +321,17 @@ def approve_transaction():
 
 @app.route('/chain', methods=['GET'])
 def full_chain():
-    id = int(request.args.get('id'))
+    
+    param = false
+    try:
+        id = request.args.get('id')
+        param = true
 
-    if id:
+    except KeyError:
+        pass
+
+    if param == true:
+        id = int(id)
         response = {
         'chain': blockchain.chain[id],
         'length': len(blockchain.chain),
