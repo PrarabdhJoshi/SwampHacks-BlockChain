@@ -298,7 +298,7 @@ def new_transaction():
 
 @app.route('/transactions/approve', methods=['GET'])
 def full_chain():
-    print("All Pending transaction are ", blockchain.pending_transaction[)
+    print("All Pending transaction are ", blockchain.pending_transaction)
     token = request.args.get('token')
     data = blockchain.pending_transaction[token]
     print("Values from data", data)
