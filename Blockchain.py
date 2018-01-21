@@ -19,8 +19,12 @@ class Blockchain:
         self.nodes = set()
         self.pending_transaction = {}
         self.balances = {
-            "Eyal": {
-                "Toys": 80000
+            "Dummy": {
+                "Toys": 80000,
+                "Corn": 80000,
+                "Oil": 80000,
+                "Rice":80000,
+                "Wheat": 80000
             }
         }
 
