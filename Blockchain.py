@@ -333,7 +333,7 @@ def full_chain():
     if param == true:
         id = int(id)
         response = {
-        'chain': blockchain.chain[id],
+        'chain': blockchain.chain[id-1],
         'length': len(blockchain.chain),
         }
         return jsonify(response), 200
