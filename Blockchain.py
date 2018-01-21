@@ -204,14 +204,15 @@ def mine():
 
     # We must receive a reward for finding the proof.
     # The sender is "0" to signify that this node has mined a new coin.
-    blockchain.new_transaction(
-        sender="0",
-        recipient=node_identifier,
-        amount=1,
-        flags="none",
-        cost=0,
-        merchandise=""
-    )
+    
+    # blockchain.new_transaction(
+    #     sender="0",
+    #     recipient=node_identifier,
+    #     amount=1,
+    #     flags="none",
+    #     cost=0,
+    #     merchandise=""
+    # )
 
     # Forge the new Block by adding it to the chain
     previous_hash = blockchain.hash(last_block)
@@ -233,32 +234,32 @@ def new_transaction():
     values = request.get_json()
     print("values of balance", blockchain.balances)
     
-    ## If sender doesnt have account
-    if values['sender'] not in blockchain.balances:
-        print("Assigning to balance to this account")
-        blockchain.balances[values['sender']] = {}
-        print("this account's balance is",blockchain.balances[values['sender']])
+    # ## If sender doesnt have account
+    # if values['sender'] not in blockchain.balances:
+    #     print("Assigning to balance to this account")
+    #     blockchain.balances[values['sender']] = {}
+    #     print("this account's balance is",blockchain.balances[values['sender']])
 
-    ## If receiver doesnt have account
-    if values['recipient'] not in blockchain.balances:
-        print("Assigning to balance to this account")
-        blockchain.balances[values['recipient']] = {}
-        print("this account's balance for recipient",blockchain.balances[values['recipient']])
+    # ## If receiver doesnt have account
+    # if values['recipient'] not in blockchain.balances:
+    #     print("Assigning to balance to this account")
+    #     blockchain.balances[values['recipient']] = {}
+    #     print("this account's balance for recipient",blockchain.balances[values['recipient']])
 
-    # Check that the required fields are in the POST'ed data
-    print("Balance of sender", blockchain.balances[values['sender']])
-    if values['merchandise'] not in blockchain.balances[values['sender']]:
-        blockchain.balances[values['sender']][values['merchandise']] = 0
-        print("No value of this merchandise")
-        print("this account's balance is when merchandise blank",blockchain.balances[values['sender']])
+    # # Check that the required fields are in the POST'ed data
+    # print("Balance of sender", blockchain.balances[values['sender']])
+    # if values['merchandise'] not in blockchain.balances[values['sender']]:
+    #     blockchain.balances[values['sender']][values['merchandise']] = 0
+    #     print("No value of this merchandise")
+    #     print("this account's balance is when merchandise blank",blockchain.balances[values['sender']])
 
     
-    ## Check account for recipient
-    print("Balance of recipient", blockchain.balances[values['recipient']])
-    if values['merchandise'] not in blockchain.balances[values['recipient']]:
-        blockchain.balances[values['recipient']][values['merchandise']] = 0
-        print("No value of this merchandise")
-        print("this account's balance is when merchandise blank for recipient",blockchain.balances[values['recipient']])
+    # ## Check account for recipient
+    # print("Balance of recipient", blockchain.balances[values['recipient']])
+    # if values['merchandise'] not in blockchain.balances[values['recipient']]:
+    #     blockchain.balances[values['recipient']][values['merchandise']] = 0
+    #     print("No value of this merchandise")
+    #     print("this account's balance is when merchandise blank for recipient",blockchain.balances[values['recipient']])
 
     required = ['sender', 'recipient', 'amount', 'cost', 'flags', 'merchandise']
     if not all(k in values for k in required):
