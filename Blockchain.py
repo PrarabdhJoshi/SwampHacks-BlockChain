@@ -300,7 +300,7 @@ def new_transaction():
 
     print(response.text)
         
-    response = {'message': 'Your transaction is now pending. The Recepient will either accept or reject the transaction. Instructions have been sent to their email address.}
+    response = {'message': 'Your transaction is now pending. The Recepient will either accept or reject the transaction. Instructions have been sent to their email address.'}
     return jsonify(response), 201
 
 
