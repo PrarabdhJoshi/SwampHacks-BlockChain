@@ -54,5 +54,3 @@ export class FarmerPageComponent implements OnInit {
 
 }
 }
-
-

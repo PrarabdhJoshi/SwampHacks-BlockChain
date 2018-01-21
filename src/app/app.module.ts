@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http';
 import { FarmerPageComponent } from './farmer-page/farmer-page.component';
+
 const appRoutes: Routes = [
   { path: 'request-inspection', component: RequestInspectionComponent},
   {path: 'farmer', component:FarmerPageComponent},

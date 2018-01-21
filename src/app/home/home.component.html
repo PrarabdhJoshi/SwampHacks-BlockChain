@@ -1,25 +1,26 @@
 <div class="example-header-image">
-<div style="margin-left:33.4%">
-  <mat-card class="example-card">
-    <mat-card-header>
-      
-      <mat-card-title><h1>Pick your Zone</h1></mat-card-title>
-      <mat-card-subtitle><h3>some tag line</h3></mat-card-subtitle>
-    </mat-card-header>
+    <div style="margin-left:33.3%">
+      <mat-card class="example-card">
+        <mat-card-header>
+          
+          <mat-card-title class="container"><h1>Pick your Zone</h1></mat-card-title>
+          <mat-card-subtitle><h3>some tag line</h3></mat-card-subtitle>
+          <div style="margin-bottom:20%"></div>
+        </mat-card-header>
+        
+        <mat-card-content style="margin-left:20%">
+            <mat-chip-list class="mat-chip-list-stacked">
+                <mat-chip *ngFor="let chip of availableColors" selected="true" [color]="chip.color" style="margin-bottom:18%">
+                    <button mat-button  [routerLink]="chip.link" style="margin-left: 25%">{{chip.name}}</button>
+                
+                </mat-chip>
     
-    <mat-card-content style="margin-left:20%">
-        <mat-chip-list class="mat-chip-list-stacked">
-            <mat-chip *ngFor="let chip of availableColors" selected="true" [color]="chip.color" style="margin-bottom:10%">
-                <button mat-button  [routerLink]="chip.link" style="margin-left: 25%">{{chip.name}}</button>
-            
-            </mat-chip>
-            
-        </mat-chip-list>
-    </mat-card-content>
-    <mat-card-actions>
-      <button (click)="post_produce()">Send</button>
-      <button mat-button  [routerLink]="['/request-inspection']">Request Inspection</button>
-    </mat-card-actions>
-  </mat-card>
-  </div>
-</div>
+            </mat-chip-list>
+        </mat-card-content>
+        <!-- <mat-card-actions>
+          <button (click)="post_produce()">Send</button>
+          <button mat-button  [routerLink]="['/request-inspection']">Request Inspection</button>
+        </mat-card-actions> -->
+      </mat-card>
+      </div>
+    </div>
