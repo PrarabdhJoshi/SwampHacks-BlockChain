@@ -11,7 +11,7 @@
         <p>
          Please fill out the Details below
         </p>
-        {{corntype}} {{quantity}} {{comment}}
+        
         <form class="example-form">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Crop Type" [(ngModel)]="corntype" [ngModelOptions]="{standalone: true}">
@@ -27,7 +27,7 @@
         </form>
       </mat-card-content>
       <mat-card-actions>
-        <button (click)="post_produce()">Send</button>
+        <button mat-button (click)="post_produce()">Send</button>
         <button mat-button  [routerLink]="['/request-inspection']">Request Inspection</button>
       </mat-card-actions>
     </mat-card>
