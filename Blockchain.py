@@ -313,7 +313,7 @@ def approve_transaction():
     response = {
             'message': 'Your code cannot be found. Try again'
         }
-        return jsonify(response), 400
+    return jsonify(response), 400
 
 
 @app.route('/chain', methods=['GET'])
