@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RequestInspectionComponent } from './request-inspection/request-inspection.component';
@@ -18,10 +17,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { FarmerPageComponent } from './farmer-page/farmer-page.component';
 import {FormsModule} from '@angular/forms';
 import { TransactionComponent } from './transaction/transaction.component';
+import { DisplayComponent } from './display/display.component';
+
+
 const appRoutes: Routes = [
   { path: 'request-inspection', component: RequestInspectionComponent},
   {path: 'farmer', component:FarmerPageComponent},
   {path: 'transaction', component:TransactionComponent},
+  {path:'display',component:DisplayComponent},
   
   {
     path: 'home',
@@ -32,6 +35,7 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   }
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +44,8 @@ const appRoutes: Routes = [
     AppFooterComponent,
     HomeComponent,
     FarmerPageComponent,
-    TransactionComponent
+    TransactionComponent,
+    DisplayComponent
   ],
   imports: [
     
