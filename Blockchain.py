@@ -236,7 +236,7 @@ def mine():
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
     values = request.get_json()
-    print("values of balance", blockchain.balances)
+    print("values of balance", values)
     
     # ## If sender doesnt have account
     # if values['sender'] not in blockchain.balances:
@@ -289,7 +289,7 @@ def new_transaction():
 
     url = "https://api:key-3ce1e8379961a1fd94132274d88ac32a@api.mailgun.net/v3/mail.maccabigamesjcc.me/messages"
 
-    payload ="------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"from\"\r\n\r\nMaccabi Games <postmaster@mail.maccabigamesjcc.me>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"to\"\r\n\r\nEyal <eyalabadi98@hotmail.com>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"subject\"\r\n\r\nNew Transaction - Verify when received\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nYou have been enitiated by a transaction. Please use this one time code to verify once you have received the correct goods and have checked them. Code: " + str(randomVal) + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+    payload ="------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"from\"\r\n\r\nMaccabi Games <postmaster@mail.maccabigamesjcc.me>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"to\"\r\n\r\nEyal <eyalabadi98@hotmail.com>\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"subject\"\r\n\r\nNew Transaction - Verify when received\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nYou have been enitiated by a transaction. Please use this one time code to verify once you have received the correct goods and have checked them. Code: " + str(randomVal) +"This Transaction contains "+ values+ "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
     headers = {
         'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
         'cache-control': "no-cache",
