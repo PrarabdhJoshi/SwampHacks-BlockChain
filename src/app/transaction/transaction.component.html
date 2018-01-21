@@ -22,8 +22,17 @@
           </mat-form-field>
         
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" value="ex. 100lbs">
+            <input matInput placeholder="Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" >
           </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="Sender" [(ngModel)]="sender" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="Recipient" [(ngModel)]="recipient" [ngModelOptions]="{standalone: true}" >
+            </mat-form-field>
+            <div *ngIf="show_it" style="color:red"><p>{{show}}</p></div>
         </form>
       </mat-card-content>
       <mat-card-actions>
