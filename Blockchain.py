@@ -307,9 +307,10 @@ def approve_transaction():
         print("Values from data", data)
         index = blockchain.new_transaction(data['sender'], data['recipient'], data['amount'],data['cost'], data['flags'], data['merchandise'])
         del blockchain.pending_transaction[token]
-        mess = 'Your transaction has been succesfully processed. Your transaction will be added to block' + index
+        
         response = {
-            'message': mess
+            'message': 'Your transaction has been succesfully processed. Your transaction will be added to block'
+            'index': index
         }
         return jsonify(response), 200
     response = {
