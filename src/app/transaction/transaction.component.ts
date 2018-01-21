@@ -14,6 +14,10 @@ export class TransactionComponent implements OnInit {
   corntype = "corn";
   comment = "";
   quantity = 0;
+  show_it=false;
+  show="";
+  recipient="";
+  sender="";
 
 
   body = {"sender": "ABC",
@@ -29,25 +33,29 @@ export class TransactionComponent implements OnInit {
 
   post_produce($event){
     
-    // this._http.post(`http://ec2-54-243-16-82.compute-1.amazonaws.com:5000/transactions/new`,
-    // {"sender": "Eyal",
-    // "recipient": "Allan",
-    // "amount": 8,
-    // "cost": 1.36,
-    // "flags": "bution",
-    // "merchandise": "Toys"
-    // })
-    // .subscribe(
-    //   (data:any)=>{
-    //     console.log(data);
-    //     if(data.length){
-    //       console.log('from post');
-    //       console.log(data);
-    //     }
-    //   }
-
-    // );
-
+   
+      
+      this._http.post(`http://ec2-54-243-16-82.compute-1.amazonaws.com:5000/transactions/new`,
+      {"sender": this.sender,
+        "recipient": this.recipient,
+        "amount": this.quantity,
+        "cost": 1,
+        "flags": "None",
+        "merchandise": this.comment}  
+    )
+      .subscribe(
+        (data:any)=>{
+          console.log(data._body.message);
+          this.show_it=true;
+          this.show=data._body;
+          if(data.length){
+            console.log('from post');
+            console.log(data);
+            
+          }
+        }
+  
+      );
     console.log({"type":this.corntype,"comment":this.comment,"quantity":this.quantity});
   }
   
