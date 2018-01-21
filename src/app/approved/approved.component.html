@@ -1,0 +1,41 @@
+<div>
+    <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Input you token" [(ngModel)]="token" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    
+  </form>
+  <button mat-button (click)="get_receipt()">Send</button>
+</div>
+<div class="example-header-image" *ngIf="show">
+<div *ngFor="let chip of chain_data" selected="true" style="margin-left:33.3%" >
+  
+
+  <mat-card class="example-card">
+      <mat-card-header>
+        
+        <mat-card-title class="container">Index: 
+          {{chip.index}}
+        </mat-card-title>
+        <mat-card-subtitle>Transaction Complete:  
+           {{chip.data.amount}} 
+        </mat-card-subtitle>
+        
+      </mat-card-header>
+      
+      <mat-card-content style="margin-left:20%">
+          <p>Cost: {{chip.data.cost}}</p>
+          <p>Flags: {{chip.data.flags}}</p>
+          <p>Sender: {{chip.data.sender}}</p>
+          <p>Recipient: {{chip.data.recipient}}</p>
+          <p>Message: {{chip.message}}</p>
+          
+      </mat-card-content>
+      <!-- <mat-card-actions>
+        <button (click)="post_produce()">Send</button>
+        <button mat-button  [routerLink]="['/request-inspection']">Request Inspection</button>
+      </mat-card-actions> -->
+    </mat-card>
+
+</div>
+</div>

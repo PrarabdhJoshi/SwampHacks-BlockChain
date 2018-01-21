@@ -1,0 +1,22 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-card {
+    width: 500px;
+  }
+
+  mat-chip {
+    max-width: 200px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://time.tno.nl/media/9505/header_blockchain_2350x670.jpg?anchor=center&mode=crop&width=0&height=0&rnd=131400076740000000');
+    /* background-size: cover; */
+  }
