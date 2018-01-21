@@ -17,7 +17,7 @@ class Blockchain:
         self.current_transactions = []
         self.chain = []
         self.nodes = set()
-        self.pending_transaction = []
+        self.pending_transaction = {}
         self.balances = {
             "Eyal": {
                 "Toys": 80000
@@ -264,9 +264,9 @@ def new_transaction():
     if not all(k in values for k in required):
         return 'Missing values', 400
     print("Entire balances before transaction", blockchain.balances)
-
-    values['token'] = randint(100, 1000)
-    blockchain.pending_transaction.append(values)
+    randomVal = randint(1000, 100000)
+    values['token'] = randomVal
+    blockchain.pending_transaction[randomVal] = values
     print("Pending trans are", blockchain.pending_transaction)
     # # Create a new Transaction
     # if blockchain.balances[values['sender']][values['merchandise']] >= values['amount']:
@@ -280,8 +280,36 @@ def new_transaction():
     #     response = {'message': 'Transaction will be added to Block {index}'}
     #     return jsonify(response), 201
         
-    response = {'message': 'You do not have sufficient funds in your account'}
-    return jsonify(response), 400
+    response = {'message': 'Your transaction is now pending. Please send another call with token to authorize', 'token': randomVal}
+    return jsonify(response), 201
+
+
+# # Create a new Transaction
+    # if blockchain.balances[values['sender']][values['merchandise']] >= values['amount']:
+    #     ##Deducting for sender
+    #     blockchain.balances[values['sender']][values['merchandise']] -= values['amount']
+    #     ##Adding for recepient
+    #     blockchain.balances[values['recipient']][values['merchandise']] += values['amount']
+    #     index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'], values['cost'], values['flags'], values['merchandise'])
+
+    #     print("Entire balances after transaction", blockchain.balances)
+    #     response = {'message': 'Transaction will be added to Block {index}'}
+    #     return jsonify(response), 201
+
+@app.route('/transactions/approve', methods=['GET'])
+def full_chain():
+    print("All Pending transaction are ", blockchain.pending_transaction[)
+    token = request.args.get('token')
+    data = blockchain.pending_transaction[token]
+    print("Values from data", data)
+    index = blockchain.new_transaction('sender', 'recipient', 'amount','cost', 'flags', 'merchandise')
+    del blockchain.pending_transaction[token]
+
+    response = {
+        'message': 'Your transaction has been succesfully processed. Your transaction will be added to block {index}'
+    }
+    return jsonify(response), 200
+
 
 
 @app.route('/chain', methods=['GET'])
