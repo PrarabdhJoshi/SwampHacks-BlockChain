@@ -324,14 +324,14 @@ def full_chain():
     
     param = False
     try:
-        id = request.args.get('id')
+        id = int(request.args.get('id'))
         param = True
 
     except KeyError:
         pass
 
     if param == True:
-        id = int(id)
+        
         response = {
         'chain': blockchain.chain[id-1],
         'length': len(blockchain.chain),
