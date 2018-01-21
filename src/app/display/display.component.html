@@ -1,22 +1,22 @@
-
-<div *ngFor="let chip of chain_data" selected="true" style="height: 600px;margin-left:33.3%" >
+<div class="example-header-image">
+<div *ngFor="let chip of chain_data" selected="true" style="margin-left:33.3%" >
   
 
   <mat-card class="example-card">
       <mat-card-header>
         
         <mat-card-title class="container">Index: 
-          <!-- {{chip.index}} -->
+          {{chip.index}}
         </mat-card-title>
         <mat-card-subtitle>  previous hash: 
-          <!-- {{chip.previous_hash}} -->
+           {{chip.previous_hash}} 
         </mat-card-subtitle>
         
       </mat-card-header>
       
       <mat-card-content style="margin-left:20%">
-          <p>chip.proof</p>
-          <p>chip.timestamp</p>
+          <p>Proof: {{chip.proof}}</p>
+          <p>TimeStamp: {{chip.timestamp}}</p>
           
       </mat-card-content>
       <!-- <mat-card-actions>
@@ -25,4 +25,5 @@
       </mat-card-actions> -->
     </mat-card>
 
+</div>
 </div>

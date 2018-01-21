@@ -26,6 +26,7 @@ const appRoutes: Routes = [
   {path: 'transaction', component:TransactionComponent},
   {path:'display',component:DisplayComponent},
   
+  
   {
     path: 'home',
     component: HomeComponent

@@ -9,7 +9,7 @@
   }
 
   .example-card {
-    width: 400px;
+    width: 500px;
   }
 
   mat-chip {
@@ -17,6 +17,6 @@
   }
   
   .example-header-image {
-    background-image: url('https://liu.arts.ubc.ca/wp-content/uploads/2016/11/8672930688_d660699aca_o.jpg');
+    background-image: url('https://time.tno.nl/media/9505/header_blockchain_2350x670.jpg?anchor=center&mode=crop&width=0&height=0&rnd=131400076740000000');
     /* background-size: cover; */
   }
